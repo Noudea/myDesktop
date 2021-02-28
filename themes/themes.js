@@ -3,11 +3,14 @@
 const themeColors = {
   light: {
     foreground: "#000000",
-    background: "#eeeeee"
+    background: "#eeeeee",
+    dock : 'hsla(0,0%,100%,0.4)',
+    topBar :'hsla(0,0%,100%,0.7)'
   },
   dark: {
     foreground: "#ffffff",
-    background: "#222222"
+    background: "#222222",
+    dock : 'red'
   }
 };
 
