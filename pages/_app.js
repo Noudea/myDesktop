@@ -2,10 +2,21 @@ import ThemeProvider from '../providers/ThemeProvider'
 import '../styles/globals.css'
 import {useState,useEffect} from 'react'
 import { ProgressCircle } from 'react-desktop/macOs';
+import { useContext } from 'react'
+import PageRenderContext from '../contexts/PageRenderContext';
 
 function MyApp({ Component, pageProps }) {
 
     const [isloading,setIsLoading] = useState(false)
+    const [welcome, setWelcome] = useState(true);
+    const [settings, setSettings] = useState(false);
+    const value = { 
+        welcome,
+        setWelcome,
+        settings,
+        setSettings
+    };
+
 
     useEffect(() => {
         setIsLoading(true)
@@ -18,7 +29,9 @@ function MyApp({ Component, pageProps }) {
         ?
             <>
                 <ThemeProvider>
-                    <Component {...pageProps} />  
+                    <PageRenderContext.Provider value = {value}>
+                        <Component {...pageProps} />  
+                    </PageRenderContext.Provider>
                 </ThemeProvider>
             </>
         : <><ProgressCircle size={25}/></>

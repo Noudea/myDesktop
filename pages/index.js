@@ -1,15 +1,21 @@
 import Head from 'next/head'
 import ThemeSwitcher from '../components/ThemeSwitcher'
-import {useContext} from 'react';
+import {useContext , useEffect} from 'react';
 import ThemeContext from '../contexts/ThemeContext'
 import FullWindow from '../components/FullWindow';
 import Welcome from '../components/windows/Welcome'
 import Dock from '../components/Dock';
 import TopBar from '../components/TopBar';
+import PageRenderContext from '../contexts/PageRenderContext';
 
 export default function Home() {
 
     console.log(useContext(ThemeContext))
+    console.log(useContext(PageRenderContext))
+
+    const settings = useContext(PageRenderContext).settings
+    const welcome = useContext(PageRenderContext).welcome
+    
   return (
   <div>
         <style jsx>{`
@@ -29,9 +35,21 @@ export default function Home() {
       <main>
         {/* <ThemeSwitcher></ThemeSwitcher> */}
         <TopBar></TopBar>
-        <FullWindow height='500px' width='300px' title='Welcome'>
-            <Welcome></Welcome>
-        </FullWindow>
+        {settings
+        ?
+        <><FullWindow height='500px' width='300px' title='Welcome'>
+            <div>settings page</div>
+        </FullWindow></>
+        :
+        <></>
+        }
+        {
+            welcome
+            ? <><FullWindow height='500px' width='300px' title='Welcome'>
+                    <Welcome></Welcome>
+                </FullWindow></>
+            : <></>
+        }
         <FullWindow height='500px' width='300px' title='Welcome'>
             div
         </FullWindow>
