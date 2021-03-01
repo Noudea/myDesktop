@@ -22,8 +22,9 @@ export default function Home() {
             }
         `}</style>
       <Head>
-        <title>Create Next App</title>
+        <title>My Desktop</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0"></meta>
       </Head>
       <main>
         {/* <ThemeSwitcher></ThemeSwitcher> */}
