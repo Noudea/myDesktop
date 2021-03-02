@@ -9,6 +9,7 @@ import TopBar from '../components/TopBar'
 import PageRenderContext from '../contexts/PageRenderContext'
 import Image from 'next/image'
 import PageIcon from '../components/icons/PageIcon'
+import Wallpapers from '../components/windows/Wallpapers'
 
 export default function Home() {
     console.log(useContext(ThemeContext))
@@ -75,6 +76,7 @@ export default function Home() {
                                         src="/images/backgrounds/1528184443-1370344293774.jpg"
                                         width="90px"
                                         height="90px"
+                                        borderRadius = "5px"
                                     ></PageIcon>
                                 </div>
                             </div>
@@ -99,11 +101,11 @@ export default function Home() {
                 {wallPapers ? (
                     <>
                         <FullWindow
-                            height="500px"
-                            width="300px"
+                            height="400px"
+                            width="850px"
                             pageName="Wallpapers"
                         >
-                            div
+                            <Wallpapers></Wallpapers>
                         </FullWindow>
                     </>
                 ) : (

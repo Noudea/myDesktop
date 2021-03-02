@@ -6,7 +6,7 @@ const PageIcon = (props) => {
     const onMouseEnter = (e) => {
         console.log('onMouseEnter')
         console.log(e.target)
-        gsap.to(e.target,{ duration: 0.3,  scale:1.05 ,ease: Power4.easeInOut})
+        gsap.to(e.target,{ duration: 0.3,  scale:1.03 ,ease: Power4.easeInOut})
     }
     const onMouseLeave = (e) => {
         console.log('onMouseLeave')
@@ -19,7 +19,8 @@ const PageIcon = (props) => {
                 img {
                     width:${props.width};
                     height:${props.height};
-                    border-radius:20px;
+                    border-radius:${props.borderRadius};
+                    max-width : 100%;
                 }
                 img:hover {
                     cursor:pointer;

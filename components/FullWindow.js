@@ -25,7 +25,10 @@ const FullWindow = (props) => {
     const onMaximizeClick = () => {
         console.log('maximize')
     }
-
+    
+    useEffect(() => {
+        setPosition('absolute')
+    })
     const onResizeClick = () => {
         if (!isResized) {
             setWidth('100vw')
@@ -82,7 +85,8 @@ const FullWindow = (props) => {
                     chrome
                     height= {height}
                     width = {width}
-                    padding="10px"
+                    padding="15px"
+                    background='#FFFFFF'
                     style={{
                         overflow: "scroll",
                         scrollbarWidth:'none'
