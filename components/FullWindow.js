@@ -1,7 +1,8 @@
 import { Window, TitleBar, Text } from 'react-desktop/macOs'
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import Draggable from 'react-draggable'; // The default
 import {usePrevious} from '../hooks/hooks'
+import PageRenderContext from '../contexts/PageRenderContext';
 
 
 const FullWindow = (props) => {
@@ -16,7 +17,10 @@ const FullWindow = (props) => {
     const [important,setImportant] = useState('')
     const [isResized,setIsResized] = useState(false)
     const [count, setCount] = useState(0);
-    
+
+    const { settings, setSettings } = useContext(PageRenderContext);
+    const { welcome, setWelcome } = useContext(PageRenderContext);
+    const { wallPapers, setWallPapers } = useContext(PageRenderContext);
 
     const onMaximizeClick = () => {
         console.log('maximize')
@@ -43,7 +47,15 @@ const FullWindow = (props) => {
     }
 
     const onCloseClick = (e) => {
-        setIsVisible(false)
+        if(props.pageName == 'Settings') {
+            setSettings(false)
+        }
+        if(props.pageName == 'Welcome') {
+            setWelcome(false)
+        }
+            if(props.pageName == 'Wallpapers') {
+            setWallPapers(false)
+        }
     }
 
     const onMinimizeClick = () => {
@@ -77,7 +89,7 @@ const FullWindow = (props) => {
                     }}
                 >
                     <TitleBar
-                        title={props.title}
+                        title={props.pageName}
                         controls
                         onMaximizeClick = {onMaximizeClick}
                         onResizeClick = {onResizeClick}

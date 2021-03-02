@@ -1,8 +1,6 @@
-import Image from 'next/image';
+
 import gsap from 'gsap'
 import { Power4 } from "gsap";
-import FullWindow from '../FullWindow';
-import Welcome from '../windows/Welcome';
 
 const Icon = (props) => {
 
@@ -35,8 +33,6 @@ const Icon = (props) => {
                 onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave}
             ></Image> */}
             <img onClick={props.onClick} onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} src={props.src}></img>
-            <div className='windowContainer'></div>
-
         </div>
     )
 }
