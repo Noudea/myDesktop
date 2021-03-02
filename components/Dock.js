@@ -37,7 +37,7 @@ const Dock = () => {
                     bottom:60px;
                     display:flex;
                     justify-content:center;
-                    height:125px;
+                    height:120px;
                 }
                 `}</style>
 
