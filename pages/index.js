@@ -10,7 +10,9 @@ import PageRenderContext from '../contexts/PageRenderContext'
 import Image from 'next/image'
 import PageIcon from '../components/icons/PageIcon'
 import Wallpapers from '../components/windows/Wallpapers'
-
+import Projects from '../components/windows/Projects'
+import Settings from '../components/windows/Settings'
+import Themes from '../components/windows/Themes'
 
 export default function Home() {
     console.log(useContext(ThemeContext))
@@ -19,18 +21,11 @@ export default function Home() {
     const settings = useContext(PageRenderContext).settings
     const welcome = useContext(PageRenderContext).welcome
     const projects = useContext(PageRenderContext).projects
+    const cocoabunbuns = useContext(PageRenderContext).cocoabunbuns
+    const wallPapers = useContext(PageRenderContext).wallPapers
+    const themes = useContext(PageRenderContext).themes
 
-    const { wallPapers, setWallPapers } = useContext(PageRenderContext)
-
-    const openWallpapers = () => {
-        if (wallPapers) {
-            setWallPapers(false)
-        } else {
-            setWallPapers(true)
-        }
-    }
-
-    console.log(process.env.hostUrl + "projets/cocoabunbuns/index.html")
+    console.log(process.env.hostUrl + 'projets/cocoabunbuns/index.html')
     return (
         <div>
             <style jsx>{`
@@ -41,18 +36,6 @@ export default function Home() {
                     justify-content: center;
                     align-items: center;
                 }
-                .settingsContainer {
-                    display: flex;
-                }
-                .settingsWrapper {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    cursor: pointer;
-                }
-                .settingsWrapper p {
-                    margin: 0px;
-                }
             `}</style>
             <Head>
                 <title>My Desktop</title>
@@ -61,23 +44,44 @@ export default function Home() {
                     name="viewport"
                     content="width=device-width,height=device-height, initial-scale=1.0"
                 ></meta>
-
             </Head>
             <main>
                 {/* <ThemeSwitcher></ThemeSwitcher> */}
                 <TopBar></TopBar>
-                {projects ? 
+                {projects ? (
                     <FullWindow
-                        height="812px"
-                        width="375px"
-                        pageName="Projects"         
+                        width="812px"
+                        height="375px"
+                        pageName="Projects"
                     >
-                        <>
-                            <iframe src="/projets/cocoabunbuns/index.html"  name="myiFrame" scrolling="yes" frameBorder="0" marginHeight="0px" marginWidth="0px" height="100%" width="100%" allowFullScreen></iframe>
-                        </>
+                        <Projects></Projects>
                     </FullWindow>
-                    : <></>
-                }
+                ) : (
+                    <></>
+                )}
+                {cocoabunbuns ? (
+                    <>
+                        <FullWindow
+                            width="375px"
+                            height="812px"
+                            pageName="Cocoabunbuns"
+                        >
+                            <iframe
+                                src="/projets/cocoabunbuns/index.html"
+                                name="myiFrame"
+                                scrolling="yes"
+                                frameBorder="0"
+                                marginHeight="0px"
+                                marginWidth="0px"
+                                height="100%"
+                                width="100%"
+                                allowFullScreen
+                            ></iframe>
+                        </FullWindow>
+                    </>
+                ) : (
+                    <></>
+                )}
 
                 {settings ? (
                     <>
@@ -86,31 +90,7 @@ export default function Home() {
                             height="150"
                             width="300px"
                         >
-                            <div className="settingsContainer">
-                                <div className="settingsWrapper">
-                                    <PageIcon
-                                        onClick={openWallpapers}
-                                        name="Wallpapers"
-                                        src="/images/backgrounds/1528184443-1370344293774.jpg"
-                                        width="90px"
-                                        height="90px"
-                                        borderRadius = "5px"
-                                    ></PageIcon>
-                                </div>
-                            </div>
-                        </FullWindow>
-                    </>
-                ) : (
-                    <></>
-                )}
-                {welcome ? (
-                    <>
-                        <FullWindow
-                            pageName="Welcome"
-                            height="500px"
-                            width="300px"
-                        >
-                            <Welcome></Welcome>
+                            <Settings></Settings>
                         </FullWindow>
                     </>
                 ) : (
@@ -129,6 +109,34 @@ export default function Home() {
                 ) : (
                     <></>
                 )}
+                {themes ? (
+                    <>
+                        <FullWindow
+                            height="400px"
+                            width="850px"
+                            pageName="Themes"
+                        >
+                            <Themes></Themes>
+                        </FullWindow>
+                    </>
+                ) : (
+                    <></>
+                )}
+
+                {welcome ? (
+                    <>
+                        <FullWindow
+                            pageName="Welcome"
+                            height="500px"
+                            width="300px"
+                        >
+                            <Welcome></Welcome>
+                        </FullWindow>
+                    </>
+                ) : (
+                    <></>
+                )}
+
                 <Dock></Dock>
             </main>
             <footer></footer>

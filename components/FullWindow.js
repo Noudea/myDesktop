@@ -22,6 +22,8 @@ const FullWindow = (props) => {
     const { welcome, setWelcome } = useContext(PageRenderContext);
     const { wallPapers, setWallPapers } = useContext(PageRenderContext);
     const { projects, setProjects } = useContext(PageRenderContext);
+    const { cocoabunbuns, setCocoabunbuns } = useContext(PageRenderContext);
+    const { themes, setThemes } = useContext(PageRenderContext);
 
     const onMaximizeClick = () => {
         console.log('maximize')
@@ -57,11 +59,17 @@ const FullWindow = (props) => {
         if(props.pageName == 'Welcome') {
             setWelcome(false)
         }
-            if(props.pageName == 'Wallpapers') {
+        if(props.pageName == 'Wallpapers') {
             setWallPapers(false)
         }
         if(props.pageName == 'Projects') {
             setProjects(false)
+        }
+        if(props.pageName == 'Cocoabunbuns') {
+            setCocoabunbuns(false)
+        }
+        if(props.pageName == 'Themes') {
+            setThemes(false)
         }
     }
 

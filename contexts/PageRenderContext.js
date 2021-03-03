@@ -9,7 +9,11 @@ const PageRenderContext = React.createContext({
     wallPapers : false,
     setWallPapers : () => {},
     projects : false,
-    setProjects : () => {}
+    setProjects : () => {},
+    cocoabunbuns : false,
+    setCocoabunbuns : () => {},
+    themes : false,
+    setThemes : () => {}
 });
 
 export default PageRenderContext;

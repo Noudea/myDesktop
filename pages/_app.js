@@ -12,6 +12,8 @@ function MyApp({ Component, pageProps }) {
     const [settings, setSettings] = useState(false);
     const [wallPapers, setWallPapers] = useState(false);
     const [projects, setProjects] = useState(false);
+    const [cocoabunbuns, setCocoabunbuns] = useState(false);
+    const [themes, setThemes] = useState(false);
     const value = { 
         welcome,
         setWelcome,
@@ -20,7 +22,11 @@ function MyApp({ Component, pageProps }) {
         wallPapers,
         setWallPapers,
         projects,
-        setProjects
+        setProjects,
+        cocoabunbuns,
+        setCocoabunbuns,
+        themes,
+        setThemes
     };
 
 
