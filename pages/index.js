@@ -72,7 +72,7 @@ export default function Home() {
                         pageName="Projects"         
                     >
                         <>
-                            <iframe src="http://localhost:3000/projets/cocoabunbuns/index.html"  name="myiFrame" scrolling="yes" frameborder="0" marginHeight="0px" marginWidth="0px" height="100%" width="100%" allowFullScreen></iframe>
+                            <iframe src=  {`${process.env.HOST_URL}` + "/projets/cocoabunbuns/index.html"}  name="myiFrame" scrolling="yes" frameborder="0" marginHeight="0px" marginWidth="0px" height="100%" width="100%" allowFullScreen></iframe>
                         </>
                     </FullWindow>
                     : <></>
