@@ -11,12 +11,15 @@ import Image from 'next/image'
 import PageIcon from '../components/icons/PageIcon'
 import Wallpapers from '../components/windows/Wallpapers'
 
+
 export default function Home() {
     console.log(useContext(ThemeContext))
     console.log(useContext(PageRenderContext))
 
     const settings = useContext(PageRenderContext).settings
     const welcome = useContext(PageRenderContext).welcome
+    const projects = useContext(PageRenderContext).projects
+
     const { wallPapers, setWallPapers } = useContext(PageRenderContext)
 
     const openWallpapers = () => {
@@ -57,10 +60,24 @@ export default function Home() {
                     name="viewport"
                     content="width=device-width,height=device-height, initial-scale=1.0"
                 ></meta>
+
             </Head>
             <main>
                 {/* <ThemeSwitcher></ThemeSwitcher> */}
                 <TopBar></TopBar>
+                {projects ? 
+                    <FullWindow
+                        height="812px"
+                        width="375px"
+                        pageName="Projects"         
+                    >
+                        <>
+                            <iframe src="http://localhost:3000/projets/cocoabunbunsv2/index.html"  name="myiFrame" scrolling="yes" frameborder="0" marginHeight="0px" marginWidth="0px" height="100%" width="100%" allowFullScreen></iframe>
+                        </>
+                    </FullWindow>
+                    : <></>
+                }
+
                 {settings ? (
                     <>
                         <FullWindow

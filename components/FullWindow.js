@@ -21,6 +21,7 @@ const FullWindow = (props) => {
     const { settings, setSettings } = useContext(PageRenderContext);
     const { welcome, setWelcome } = useContext(PageRenderContext);
     const { wallPapers, setWallPapers } = useContext(PageRenderContext);
+    const { projects, setProjects } = useContext(PageRenderContext);
 
     const onMaximizeClick = () => {
         console.log('maximize')
@@ -58,6 +59,9 @@ const FullWindow = (props) => {
         }
             if(props.pageName == 'Wallpapers') {
             setWallPapers(false)
+        }
+        if(props.pageName == 'Projects') {
+            setProjects(false)
         }
     }
 

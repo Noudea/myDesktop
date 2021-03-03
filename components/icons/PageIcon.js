@@ -1,8 +1,13 @@
 import Image from 'next/image';
 import gsap from 'gsap'
 import { Power4 } from "gsap";
+import { useState , useEffect } from 'react'
+import { ProgressCircle } from 'react-desktop/macOs';
 
 const PageIcon = (props) => {
+    const [isLoaded,setIsLoaded] = useState(false)
+    
+    
     const onMouseEnter = (e) => {
         console.log('onMouseEnter')
         console.log(e.target)
@@ -12,6 +17,10 @@ const PageIcon = (props) => {
         console.log('onMouseLeave')
         gsap.to(e.target,{ duration: 0.3,   scale:1 ,ease: Power4.easeInOut})
     }
+
+    useEffect(() => {
+        setIsLoaded(true)
+    })
 
     return(
         <div> 
@@ -41,10 +50,14 @@ const PageIcon = (props) => {
                 height={props.height}
                 onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave}
             ></Image> */}
-            <div className='pageIconContainer'>
-                <img onClick={props.onClick} onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} src={props.src}></img>
-                <p>{props.name}</p>
-            </div>
+            {
+                isLoaded ?
+                <div className='pageIconContainer'>
+                    <img onClick={props.onClick} onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} src={props.src}></img>
+                    <p>{props.name}</p>
+                </div>
+                : <ProgressCircle size={25}/>
+            }
 
 
         </div>

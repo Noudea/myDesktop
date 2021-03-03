@@ -12,13 +12,16 @@ function MyApp({ Component, pageProps }) {
     const [welcome, setWelcome] = useState(true);
     const [settings, setSettings] = useState(false);
     const [wallPapers, setWallPapers] = useState(false);
+    const [projects, setProjects] = useState(false);
     const value = { 
         welcome,
         setWelcome,
         settings,
         setSettings,
         wallPapers,
-        setWallPapers
+        setWallPapers,
+        projects,
+        setProjects
     };
 
 

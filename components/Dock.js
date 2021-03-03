@@ -7,8 +7,8 @@ import Icon from './icons/Icon';
 const Dock = () => {
     
     const colors = themeColors[useContext(ThemeContext).theme]
-    const { settings, setSettings } = useContext(PageRenderContext);
-    
+    const { settings, setSettings , projects , setProjects  } = useContext(PageRenderContext);
+
     const openSettings = () => {
 
         // const { openPages, setOpenPages } = useContext(PageRenderContext);
@@ -18,6 +18,14 @@ const Dock = () => {
              setSettings(true)
         }
         // setOpenPages(OpenPages.Settings.true)
+    }
+
+    const openProjects = () => {
+        if(projects) {
+            setProjects(false)
+        } else {
+            setProjects(true)
+        }
     }
 
     return(
@@ -43,7 +51,8 @@ const Dock = () => {
 
             <div className="dockContainer">
                 <div className='IconContainer'>
-                    <Icon onClick={openSettings} src='svg/apple-settings.svg' width='90px' height='90px'></Icon>
+                    <Icon name='Mes projets' onClick={openProjects} src='icons/app-store-2019-09-25.png' width='90px' height='90px'></Icon>
+                    <Icon name='Settings'onClick={openSettings} src='svg/apple-settings.svg' width='90px' height='90px'></Icon>
                 </div>
             </div>
         </>

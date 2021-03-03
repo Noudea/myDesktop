@@ -4,7 +4,6 @@ import { Power4 } from "gsap";
 
 const Icon = (props) => {
 
-    
     const onMouseEnter = (e) => {
         console.log('onMouseEnter')
         console.log(e.target)
@@ -25,6 +24,14 @@ const Icon = (props) => {
                 img:hover {
                     cursor:pointer;
                 }
+                p{
+                    margin:0px;
+                }
+                .iconWrapper {
+                    display :flex;
+                    flex-direction:column;
+                    align-items: center;
+                }
                 `}</style>
             {/* <Image
                 src={props.src}
@@ -32,7 +39,10 @@ const Icon = (props) => {
                 height={props.height}
                 onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave}
             ></Image> */}
-            <img onClick={props.onClick} onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} src={props.src}></img>
+            <div className='iconWrapper'>
+                <img onClick={props.onClick} onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave} src={props.src}></img>
+                <p>{props.name}</p>
+            </div>
         </div>
     )
 }
