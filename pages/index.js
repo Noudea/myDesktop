@@ -30,6 +30,7 @@ export default function Home() {
         }
     }
 
+    console.log(process.env.hostUrl + "projets/cocoabunbuns/index.html")
     return (
         <div>
             <style jsx>{`
@@ -72,7 +73,7 @@ export default function Home() {
                         pageName="Projects"         
                     >
                         <>
-                            <iframe src=  {`${process.env.HOST_URL}` + "/projets/cocoabunbuns/index.html"}  name="myiFrame" scrolling="yes" frameborder="0" marginHeight="0px" marginWidth="0px" height="100%" width="100%" allowFullScreen></iframe>
+                            <iframe src="/projets/cocoabunbuns/index.html"  name="myiFrame" scrolling="yes" frameBorder="0" marginHeight="0px" marginWidth="0px" height="100%" width="100%" allowFullScreen></iframe>
                         </>
                     </FullWindow>
                     : <></>
