@@ -33,7 +33,8 @@ const ThemeProvider = ({children}) => {
             <>
                 <style jsx>{`
                     .bgWrap {
-                        position: fixed;
+                        position: absolute;
+                        display:block;
                         height: 100vh;
                         width: 100vw;
                         overflow: hidden;

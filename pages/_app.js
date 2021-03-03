@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react'
 import { ProgressCircle } from 'react-desktop/macOs';
 import { useContext } from 'react'
 import PageRenderContext from '../contexts/PageRenderContext';
+import 'normalize.css'; 
 
 function MyApp({ Component, pageProps }) {
 
