@@ -10,7 +10,7 @@ const Profile = () => {
                 }
                 img {
                     max-width: 100%;
-                    width: 20%;
+                    width: 40%;
                 }
                 article {
                     display: flex;
@@ -21,7 +21,6 @@ const Profile = () => {
                     padding-left: 15px;
                     display: flex;
                     flex-direction: column;
-                    justify-content:space-between;
                 }
                 p,h2{
                     margin :0px;
@@ -37,7 +36,7 @@ const Profile = () => {
 
                 }
             `}</style>
-            <section className="welcomeContainer">
+            <section className="projetsContainer">
                 <article>
                     <img src="/images/photo-nicolas.jpg"></img>
                     <div className="infoContainer">

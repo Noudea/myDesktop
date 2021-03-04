@@ -157,8 +157,8 @@ export default function Home() {
                 {profile ? (
                     <>
                         <FullWindow
-                            width = "800px"
-                            height = "470px"
+                            width = "500px"
+                            height = "630px"
                             pageName='Profil'
                             background= {colors.background}
                         >

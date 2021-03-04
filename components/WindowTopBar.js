@@ -11,14 +11,18 @@ const WindowTopBar = (props) => {
                 .titleBar {
                     width: 100%;
                     height: 22px;
-                    position: absolute;
-                    top: 0px;
+                    position: fixed;
+                    top: -1px;
                     left: 0px;
+                    z-index : 1;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     padding:2px;
-                    background-color : ${colors.titleBar}
+                    border: 1px solid ${colors.titleBar};
+                    background-color : ${colors.titleBar};
+                    border-radius : 10px 10px 0px 0px;
+                    cursor:pointer;
                 }
                 p {
                     margin: 0px;

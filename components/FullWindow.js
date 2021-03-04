@@ -1,10 +1,10 @@
-import { Window, TitleBar, Text } from 'react-desktop/macOs'
 import { useState, useEffect, useContext } from 'react'
 import Draggable from 'react-draggable' // The default
 import { usePrevious } from '../hooks/hooks'
 import PageRenderContext from '../contexts/PageRenderContext'
 import ThemeContext from '../contexts/ThemeContext'
 import WindowTopBar from './WindowTopBar'
+import Window from './Window'
 
 const FullWindow = (props) => {
     console.log(props)
@@ -91,22 +91,22 @@ const FullWindow = (props) => {
                     position: ${position};
                     top: ${top};
                     right: ${right};
-                    transform: translate(${translate.x}, ${translate.y})
-                        ${important};
+                    transform: translate(${translate.x}, ${translate.y}) ${important};
                 }
             `}</style>
             {isVisible ? (
                 <Draggable handle=".titleBar" bounds="parent">
                     <div className="windowContainer">
+                        <WindowTopBar onResizeClick={onResizeClick} onCloseClick={onCloseClick} name={props.pageName}></WindowTopBar>
                         <Window
                             height={height}
                             width={width}
-                            padding="30px 15px"
+                            // padding="30px 15px"
                             background= {props.background}
-                            style={{
-                                overflow: 'scroll',
-                                scrollbarWidth: 'none',
-                            }}
+                            // style={{
+                            //     overflow: 'scroll',
+                            //     scrollbarWidth: 'none',
+                            // }}
                         >
                             {/* <TitleBar
                                 title={props.pageName}
@@ -119,7 +119,6 @@ const FullWindow = (props) => {
                                 onMinimizeClick={onMinimizeClick}
                                 className="titleBar"
                             /> */}
-                            <WindowTopBar onResizeClick={onResizeClick} onCloseClick={onCloseClick} name={props.pageName}></WindowTopBar>
                             {props.children}
                         </Window>
                     </div>
