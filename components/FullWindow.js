@@ -4,7 +4,7 @@ import Draggable from 'react-draggable' // The default
 import { usePrevious } from '../hooks/hooks'
 import PageRenderContext from '../contexts/PageRenderContext'
 import ThemeContext from '../contexts/ThemeContext'
-import WindowTopBar from './windowTopBar'
+import WindowTopBar from './WindowTopBar'
 
 const FullWindow = (props) => {
     console.log(props)
