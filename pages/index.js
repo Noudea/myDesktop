@@ -13,17 +13,24 @@ import Wallpapers from '../components/windows/Wallpapers'
 import Projects from '../components/windows/Projects'
 import Settings from '../components/windows/Settings'
 import Themes from '../components/windows/Themes'
+import { themeColors } from '../themes/themes'
+import Profile from '../components/windows/Profile'
+import Spotify from '../components/windows/spotify/Spotify'
 
 export default function Home() {
     console.log(useContext(ThemeContext))
     console.log(useContext(PageRenderContext))
-
+    
+    const colors = themeColors[useContext(ThemeContext).theme]
+    
     const settings = useContext(PageRenderContext).settings
     const welcome = useContext(PageRenderContext).welcome
     const projects = useContext(PageRenderContext).projects
     const cocoabunbuns = useContext(PageRenderContext).cocoabunbuns
     const wallPapers = useContext(PageRenderContext).wallPapers
     const themes = useContext(PageRenderContext).themes
+    const profile = useContext(PageRenderContext).profile
+    const spotify = useContext(PageRenderContext).spotify
 
     console.log(process.env.hostUrl + 'projets/cocoabunbuns/index.html')
     return (
@@ -35,6 +42,11 @@ export default function Home() {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                }
+            `}</style>
+            <style jsx global>{`
+                p,a,h1,h2 {
+                    color: ${colors.text};
                 }
             `}</style>
             <Head>
@@ -53,6 +65,7 @@ export default function Home() {
                         width="812px"
                         height="375px"
                         pageName="Projects"
+                        background= {colors.background}
                     >
                         <Projects></Projects>
                     </FullWindow>
@@ -65,6 +78,7 @@ export default function Home() {
                             width="375px"
                             height="812px"
                             pageName="Cocoabunbuns"
+                            background= 'white'
                         >
                             <iframe
                                 src="/projets/cocoabunbuns/index.html"
@@ -89,6 +103,7 @@ export default function Home() {
                             pageName="Settings"
                             height="150"
                             width="300px"
+                            background= {colors.background}
                         >
                             <Settings></Settings>
                         </FullWindow>
@@ -102,6 +117,7 @@ export default function Home() {
                             height="400px"
                             width="850px"
                             pageName="Wallpapers"
+                            background= {colors.background}
                         >
                             <Wallpapers></Wallpapers>
                         </FullWindow>
@@ -115,6 +131,7 @@ export default function Home() {
                             height="400px"
                             width="850px"
                             pageName="Themes"
+                            background= {colors.background}
                         >
                             <Themes></Themes>
                         </FullWindow>
@@ -129,10 +146,37 @@ export default function Home() {
                             pageName="Welcome"
                             height="500px"
                             width="300px"
+                            background= {colors.background}
                         >
                             <Welcome></Welcome>
                         </FullWindow>
                     </>
+                ) : (
+                    <></>
+                )}
+                {profile ? (
+                    <>
+                        <FullWindow
+                            width = "800px"
+                            height = "470px"
+                            pageName='Profil'
+                            background= {colors.background}
+                        >
+                            <Profile></Profile>
+                        </FullWindow>
+                    </>
+                ) : (
+                    <></>
+                )}
+                {spotify ? (
+                    <FullWindow
+                        width="375px"
+                        height="812px"
+                        pageName="Spotify"
+                        background = '#010101'
+                    >
+                        <Spotify></Spotify>
+                    </FullWindow>
                 ) : (
                     <></>
                 )}

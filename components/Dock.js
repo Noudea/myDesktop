@@ -7,7 +7,12 @@ import Icon from './icons/Icon';
 const Dock = () => {
     
     const colors = themeColors[useContext(ThemeContext).theme]
-    const { settings, setSettings , projects , setProjects  } = useContext(PageRenderContext);
+    const { settings, setSettings,
+        projects , setProjects,
+        profile , setProfile,
+        spotify, setSpotify
+        } = useContext(PageRenderContext);
+
 
     const openSettings = () => {
 
@@ -28,6 +33,21 @@ const Dock = () => {
         }
     }
 
+    const openProfile = () => {
+        if(profile) {
+            setProfile(false)
+        } else {
+            setProfile(true)
+        }   
+    }
+
+    const openSpotify = () => {
+        if(spotify) {
+            setSpotify(false)
+        } else {
+            setSpotify(true)
+        } 
+    }
     return(
         <>
             <style jsx>{`
@@ -51,7 +71,9 @@ const Dock = () => {
 
             <div className="dockContainer">
                 <div className='IconContainer'>
+                    <Icon name='Mon Profil' onClick={openProfile} src='icons/app-store-2019-09-25.png' width='90px' height='90px'></Icon>
                     <Icon name='Mes projets' onClick={openProjects} src='icons/app-store-2019-09-25.png' width='90px' height='90px'></Icon>
+                    <Icon name='Spotify'onClick={openSpotify} src='icons/168px-Spotify_logo_without_text.png' width='90px' height='90px'></Icon>
                     <Icon name='Settings'onClick={openSettings} src='svg/apple-settings.svg' width='90px' height='90px'></Icon>
                 </div>
             </div>

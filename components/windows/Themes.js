@@ -5,17 +5,16 @@ import ThemeContext from "../../contexts/ThemeContext";
 const Themes = () => {
 
     const { background, setBackground } = useContext(ThemeContext);
+    const {theme,setTheme} = useContext(ThemeContext);
 
-    const setNightDesert = () => {
-        console.log('changebackground to desert night')
-        setBackground("nightDesert")
-        localStorage.setItem('background','nightDesert')
+    const setRoseGold = () => {
+        setTheme("roseGold")
+        localStorage.setItem('theme','roseGold')
     }
 
-    const setDayDesert = () => {
-        console.log('changebackground to desert day')
-        setBackground("dayDesert")
-        localStorage.setItem('background','dayDesert')
+    const setDark = () => {
+        setTheme("dark")
+        localStorage.setItem('theme','dark')
     }
 
     const setTanjiro = () => {
@@ -50,20 +49,20 @@ const Themes = () => {
                 `}</style>
             {/* daydesert */}
             <PageIcon 
-                onClick={setDayDesert}
+                onClick={setRoseGold}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1528184443-1370344293774.jpg'
-                name="Day Desert"
+                src='/images/themes/rose-gold-color-solid-background-1920x1080.png'
+                name="Rose gold"
                 >
             </PageIcon>
             {/* nightdesert */}
             <PageIcon
-                onClick={setNightDesert}
+                onClick={setDark}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1528184483-1410138568815.jpg'
-                name="Night Desert"
+                src='/images/themes/black-color-solid-background-1920x1080.png'
+                name="Dark"
                 >
             </PageIcon>
             <PageIcon

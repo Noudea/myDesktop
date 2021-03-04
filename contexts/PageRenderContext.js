@@ -1,5 +1,4 @@
 import React from 'react';
-import {themeColors,themeBackgrounds} from '../themes/themes'
 
 const PageRenderContext = React.createContext({
     welcome: true,
@@ -13,7 +12,11 @@ const PageRenderContext = React.createContext({
     cocoabunbuns : false,
     setCocoabunbuns : () => {},
     themes : false,
-    setThemes : () => {}
+    setThemes : () => {},
+    profiles : false,
+    setProfile : () => {},
+    spotify : false,
+    setSpotify : () => {}
 });
 
 export default PageRenderContext;

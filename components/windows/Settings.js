@@ -46,7 +46,7 @@ const Settings = () => {
                     <PageIcon
                         onClick={openThemes}
                         name="Themes"
-                        src="/images/backgrounds/1528184443-1370344293774.jpg"
+                        src="/icons/theme.png"
                         width="90px"
                         height="90px"
                         borderRadius="5px"

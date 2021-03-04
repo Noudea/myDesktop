@@ -14,6 +14,9 @@ function MyApp({ Component, pageProps }) {
     const [projects, setProjects] = useState(false);
     const [cocoabunbuns, setCocoabunbuns] = useState(false);
     const [themes, setThemes] = useState(false);
+    const [profile,setProfile] = useState(false);
+    const [spotify,setSpotify] = useState(false);
+
     const value = { 
         welcome,
         setWelcome,
@@ -26,7 +29,11 @@ function MyApp({ Component, pageProps }) {
         cocoabunbuns,
         setCocoabunbuns,
         themes,
-        setThemes
+        setThemes,
+        profile,
+        setProfile,
+        spotify,
+        setSpotify
     };
 
 
