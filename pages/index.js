@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import ThemeSwitcher from '../components/ThemeSwitcher'
 import { useContext, useEffect } from 'react'
 import ThemeContext from '../contexts/ThemeContext'
 import FullWindow from '../components/FullWindow'
@@ -7,8 +6,6 @@ import Welcome from '../components/windows/Welcome'
 import Dock from '../components/Dock'
 import TopBar from '../components/TopBar'
 import PageRenderContext from '../contexts/PageRenderContext'
-import Image from 'next/image'
-import PageIcon from '../components/icons/PageIcon'
 import Wallpapers from '../components/windows/Wallpapers'
 import Projects from '../components/windows/Projects'
 import Settings from '../components/windows/Settings'
@@ -20,9 +17,9 @@ import Spotify from '../components/windows/spotify/Spotify'
 export default function Home() {
     console.log(useContext(ThemeContext))
     console.log(useContext(PageRenderContext))
-    
+
     const colors = themeColors[useContext(ThemeContext).theme]
-    
+
     const settings = useContext(PageRenderContext).settings
     const welcome = useContext(PageRenderContext).welcome
     const projects = useContext(PageRenderContext).projects
@@ -45,13 +42,24 @@ export default function Home() {
                 }
             `}</style>
             <style jsx global>{`
-                p,a,h1,h2 {
+                p,
+                a,
+                h1,
+                h2 {
                     color: ${colors.text};
+                }
+                h2 {
+                    color:${colors.accentStrong}
                 }
             `}</style>
             <Head>
                 <title>My Desktop</title>
                 <link rel="icon" href="/favicon.ico" />
+                <link
+                    rel="preload"
+                    href="/fonts/Neue Helvetica/Helvetica65Medium_22443.ttf"
+                    as="font"
+                />
                 <meta
                     name="viewport"
                     content="width=device-width,height=device-height, initial-scale=1.0"
@@ -62,10 +70,10 @@ export default function Home() {
                 <TopBar></TopBar>
                 {projects ? (
                     <FullWindow
-                        width="812px"
-                        height="375px"
-                        pageName="Projects"
-                        background= {colors.background}
+                        width="285px"
+                        height="500px"
+                        pageName="Projets"
+                        background={colors.background}
                     >
                         <Projects></Projects>
                     </FullWindow>
@@ -78,7 +86,7 @@ export default function Home() {
                             width="375px"
                             height="812px"
                             pageName="Cocoabunbuns"
-                            background= 'white'
+                            background="white"
                         >
                             <iframe
                                 src="/projets/cocoabunbuns/index.html"
@@ -103,7 +111,7 @@ export default function Home() {
                             pageName="Settings"
                             height="150"
                             width="300px"
-                            background= {colors.background}
+                            background={colors.background}
                         >
                             <Settings></Settings>
                         </FullWindow>
@@ -117,7 +125,7 @@ export default function Home() {
                             height="400px"
                             width="850px"
                             pageName="Wallpapers"
-                            background= {colors.background}
+                            background={colors.background}
                         >
                             <Wallpapers></Wallpapers>
                         </FullWindow>
@@ -128,10 +136,10 @@ export default function Home() {
                 {themes ? (
                     <>
                         <FullWindow
-                            height="400px"
-                            width="850px"
+                            height="300px"
+                            width="198px"
                             pageName="Themes"
-                            background= {colors.background}
+                            background={colors.background}
                         >
                             <Themes></Themes>
                         </FullWindow>
@@ -143,10 +151,10 @@ export default function Home() {
                 {welcome ? (
                     <>
                         <FullWindow
-                            pageName="Welcome"
+                            pageName="Bienvenue"
                             height="500px"
                             width="300px"
-                            background= {colors.background}
+                            background={colors.background}
                         >
                             <Welcome></Welcome>
                         </FullWindow>
@@ -157,10 +165,10 @@ export default function Home() {
                 {profile ? (
                     <>
                         <FullWindow
-                            width = "500px"
-                            height = "630px"
-                            pageName='Profil'
-                            background= {colors.background}
+                            width="500px"
+                            height="630px"
+                            pageName="Profil"
+                            background={colors.background}
                         >
                             <Profile></Profile>
                         </FullWindow>
@@ -173,7 +181,7 @@ export default function Home() {
                         width="375px"
                         height="812px"
                         pageName="Spotify"
-                        background = '#010101'
+                        background="#010101"
                     >
                         <Spotify></Spotify>
                     </FullWindow>

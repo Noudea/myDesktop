@@ -28,11 +28,18 @@ const TopBar = () => {
             p {
                 margin:0px;
             }
+
+            a{
+                margin : 0px 10px;
+                font-weight : 600;
+                color : ${colors.inverted}
+            }
         `}</style>
             <div className='topBar'>
                 <div>
                     <a href='https://github.com/noudea' target="_blank">Github</a>
                     <a href='https://www.instagram.com/oudeaweb/' target="_blank">Instagram</a>
+                    <a href='https://www.linkedin.com/in/nicolas-oudea-958876146/'>Linkedin</a>
                 </div>
                 <div>
                     <Clock></Clock> 

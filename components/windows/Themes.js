@@ -17,24 +17,14 @@ const Themes = () => {
         localStorage.setItem('theme','dark')
     }
 
-    const setTanjiro = () => {
-        setBackground("tanjiro")
-        localStorage.setItem('background','tanjiro')
-    }
-
-    const setMuzan = () => {
-        setBackground("muzan")
-        localStorage.setItem('background','muzan')
+    const setLight = () => {
+        setTheme("light")
+        localStorage.setItem('theme','light')
     }
     
-    const setTomiokaWater = () => {
-        setBackground("tomiokaWater")
-        localStorage.setItem('background','tomiokaWater')
-    }
-
-    const setTomioka = () => {
-        setBackground("tomioka")
-        localStorage.setItem('background','tomioka')
+    const setGlowingBlue = () => {
+        setTheme('glowingBlue')
+        localStorage.setItem('theme','glowingBlue')
     }
     
     return(
@@ -42,13 +32,39 @@ const Themes = () => {
             <style jsx>{`
                 .wallpapersContainer {
                     display:flex;
-                    justify-content: space-evenly;
                     flex-wrap:wrap;
                     width: 100%;
                 }
+                .colorPicker {
+                    width:50px; 
+                    height:50px;
+                    cursor:pointer;
+                    margin:3px;
+                }
+                .colorPicker:hover {
+                    border:3px solid black;
+                    border-radius:5px;
+                }
+                #roseGold {
+                    background-color:#E0BFB8;
+                }
+                #dark{
+                    background-color:#000000;
+                }
+                #light {
+                    background-color:#ececec;
+                }
+                #glowingBlue {
+                    background-color:#5C73F2;
+                }
                 `}</style>
             {/* daydesert */}
-            <PageIcon 
+            
+            <div className='colorPicker' id='light' onClick={setLight}></div>
+            <div  className='colorPicker' id='roseGold' onClick={setRoseGold}></div>
+            <div  className='colorPicker' id='dark' onClick={setDark}></div>
+            <div  className='colorPicker' id='glowingBlue' onClick={setGlowingBlue}></div>
+            {/* <PageIcon 
                 onClick={setRoseGold}
                 width="255px" 
                 height="150px" 
@@ -56,7 +72,6 @@ const Themes = () => {
                 name="Rose gold"
                 >
             </PageIcon>
-            {/* nightdesert */}
             <PageIcon
                 onClick={setDark}
                 width="255px" 
@@ -72,7 +87,7 @@ const Themes = () => {
                 src='/images/backgrounds/1014466.jpg'
                 name="Tanjiro"
                 >
-            </PageIcon>
+            </PageIcon> */}
         </div>
     )
 }

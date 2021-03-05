@@ -17,7 +17,7 @@ const Title = (props) => {
     //     }, 1000)
     // }
                     console.log(useContext(PlayerContext))
-                    
+
     useEffect(() => {
         setAudioPlayer(document.getElementById('audioPlayer'))
         console.log('TITTILE',props.title,song)
@@ -54,10 +54,11 @@ const Title = (props) => {
                 width: 100%;
                 padding: 8px 16px;
                 text-align: left;
+                overflow:hidden;
             }
             .titleContainer:hover {
                 cursor: pointer;
-                background-color: #fff;
+                opacity:60%;
             }
             .title{
                 color:${color};

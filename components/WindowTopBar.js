@@ -3,7 +3,6 @@ import ThemeContext from '../contexts/ThemeContext'
 import { themeColors } from '../themes/themes'
 
 const WindowTopBar = (props) => {
-
     const colors = themeColors[useContext(ThemeContext).theme]
     return (
         <>
@@ -14,18 +13,21 @@ const WindowTopBar = (props) => {
                     position: fixed;
                     top: -1px;
                     left: 0px;
-                    z-index : 1;
+                    z-index: 1;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding:2px;
-                    border: 1px solid ${colors.titleBar};
-                    background-color : ${colors.titleBar};
-                    border-radius : 10px 10px 0px 0px;
-                    cursor:pointer;
+                    padding: 2px;
+                    border: 1px solid ${colors.main};
+                    background-color: ${colors.main};
+                    border-radius: 10px 10px 0px 0px;
+                    cursor: pointer;
                 }
                 p {
                     margin: 0px;
+                    font-style: italic;
+                    font-weight: 600;
+                    color: ${colors.inverted};
                 }
                 .buttonContainer {
                     display: flex;
@@ -59,17 +61,19 @@ const WindowTopBar = (props) => {
                 }
             `}</style>
             <div className="titleBar">
-                <div className='buttonContainer'>
+                <div className="buttonContainer">
                     <div
                         onClick={props.onCloseClick}
                         className="button red"
                     ></div>
-                    <div onClick={props.onCloseClick} className="button orange"></div>
+                    <div
+                        onClick={props.onCloseClick}
+                        className="button orange"
+                    ></div>
                     <div
                         onClick={props.onResizeClick}
                         className="button green"
-                    >
-                    </div>
+                    ></div>
                 </div>
                 <p>{props.name}</p>
             </div>

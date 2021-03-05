@@ -1,4 +1,5 @@
 import ThemeProvider from '../providers/ThemeProvider'
+import '../styles/normalize.css'
 import '../styles/globals.css'
 import {useState,useEffect} from 'react'
 import { ProgressCircle } from 'react-desktop/macOs';

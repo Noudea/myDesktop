@@ -58,13 +58,13 @@ const FullWindow = (props) => {
         if (props.pageName == 'Settings') {
             setSettings(false)
         }
-        if (props.pageName == 'Welcome') {
+        if (props.pageName == 'Bienvenue') {
             setWelcome(false)
         }
         if (props.pageName == 'Wallpapers') {
             setWallPapers(false)
         }
-        if (props.pageName == 'Projects') {
+        if (props.pageName == 'Projets') {
             setProjects(false)
         }
         if (props.pageName == 'Cocoabunbuns') {
@@ -92,6 +92,7 @@ const FullWindow = (props) => {
                     top: ${top};
                     right: ${right};
                     transform: translate(${translate.x}, ${translate.y}) ${important};
+                    border-radius : 10px;
                 }
             `}</style>
             {isVisible ? (
