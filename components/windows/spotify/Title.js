@@ -1,4 +1,43 @@
+import { useContext , useState , useEffect } from 'react'
+import PlayerContext from "../../../contexts/PlayerContext"
+
+
+
 const Title = (props) => {
+
+    const {song,setSong} = useContext(PlayerContext)
+    const {songSrc,setSongSrc} = useContext(PlayerContext)
+    const {songKey,setSongKey} = useContext(PlayerContext)
+    const [audioPlayer, setAudioPlayer] = useState('')
+    const [color,setColor] = useState('white')
+    //     const playMusic = (event) => {
+    //     setMusic(event.target.dataset.src)
+    //     setTimeout(() => {
+    //         audioPlayer.play()
+    //     }, 1000)
+    // }
+                    console.log(useContext(PlayerContext))
+                    
+    useEffect(() => {
+        setAudioPlayer(document.getElementById('audioPlayer'))
+        console.log('TITTILE',props.title,song)
+        if(props.title == song) {
+            setColor('#1ED760')
+        } else {
+            setColor('white')
+        }
+    },[song,color])
+
+    const play = () => {
+        setSong(props.title)
+        setSongSrc(props.data)
+        setSongKey(props.dataKey)
+        setTimeout(() => {
+            audioPlayer.play()
+        }, 1000)
+        console.log(songSrc)
+    }
+
     return(
         <>
         <style jsx>{`
@@ -21,7 +60,7 @@ const Title = (props) => {
                 background-color: #fff;
             }
             .title{
-                color:white;
+                color:${color};
                 margin:0px;
                 font-size:25px;
             }
@@ -30,9 +69,9 @@ const Title = (props) => {
                 margin:0px;
             }
         `}</style>
-            <div onClick = {props.onClick} data-src= {props.data} className='titleContainer'>
-                <p className='title'  data-src= {props.data}  >{props.title}</p>
-                <p className='artiste'  data-src= {props.data}  >{props.artiste}</p>
+            <div onClick = {play} className='titleContainer'>
+                <p className='title' >{props.title}</p>
+                <p className='artiste'>{props.artiste}</p>
             </div>
         </>
     )

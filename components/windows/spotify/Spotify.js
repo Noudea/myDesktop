@@ -1,50 +1,85 @@
 import Scroller from './Scroller'
 import Title from './Title'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import PlayerContext from '../../../contexts/PlayerContext'
 
 const Spotify = () => {
     const [music, setMusic] = useState('')
     // music/rap/MaesBilletVert.mp3
-    const [audioPlayer, setAudioPlayer] = useState('')
+    const [audioPlayer, setAudioPlayer] = useState(false)
     const [rapPlaylist, setRapPlaylist] = useState(false)
     const [codePLaylist, setCodePlaylist] = useState(false)
+    const [song, setSong] = useState('')
+    const [songKey, setSongKey] = useState('')
+    const [playlist, setPlaylist] = useState('')
+    const [songSrc, setSongSrc] = useState('')
+    const [isLoaded, setIsLoaded] = useState(false)
 
-    useEffect(() => {
-        setAudioPlayer(document.getElementById('audioPlayer'))
-    })
-
-    const playMusic = (event) => {
-        setMusic(event.target.dataset.src)
-        setTimeout(() => {
-            audioPlayer.play()
-        }, 1000)
+    const value = {
+        song,
+        setSong,
+        songSrc,
+        setSongSrc,
+        songKey,
+        setSongKey,
+        playlist,
+        setPlaylist,
     }
 
-    const playListRap = [
-        {
-            title: 'Billet Vert',
-            artiste: 'Maes',
-            src: 'music/rap/MaesBilletVert.mp3',
-        },
-        {
-            title: 'Au DD',
-            artiste: 'PNL',
-            src: 'music/rap/PnlAuDD.mp3',
-        },
-    ]
+    // const srcSong = useContext(PlayerContext).songSrc
+    // console.log('SRCSONG',srcSong)
+    
+    useEffect(() => {
+        setIsLoaded(true)
+        setAudioPlayer(document.getElementById('audioPlayer'))
+        if (audioPlayer) {
+            audioPlayer.addEventListener('ended', () => {
+                const currentPlaylist = playlist
+                if(myMusic[currentPlaylist]) {
+                    if (songKey == myMusic[currentPlaylist].length - 1) {
+                        setSongSrc(myMusic[currentPlaylist][0].src)
+                        setSong(myMusic[currentPlaylist][0].title)
+                        setSongKey(0)
+                    } else {
+                        setSongSrc(myMusic[currentPlaylist][songKey + 1].src)
+                        setSong(myMusic[currentPlaylist][songKey + 1].title)
+                        setSongKey(songKey+1)
+                        setTimeout(() => {
+                            audioPlayer.play()
+                        }, 1000)
+                    }
+                }
+            })
+        }
+    })
 
-    const playListCode = [
-        {
-            title: 'The Intro',
-            artiste: 'The XX',
-            src: 'music/code/TheXXIntro.mp3',
-        },
-        {
-            title: 'Day One',
-            artiste: 'Hans Zimmer',
-            src: 'music/code/HansZimmerDayOne.mp3',
-        },
-    ]
+    const myMusic = {
+        playListRap: [
+            {
+                title: 'Billet Vert',
+                artiste: 'Maes',
+                src: 'music/rap/MaesBilletVert.mp3',
+            },
+            {
+                title: 'Au DD',
+                artiste: 'PNL',
+                src: 'music/rap/PnlAuDD.mp3',
+            },
+        ],
+        playListCode: [
+            {
+                title: 'The Intro',
+                artiste: 'The XX',
+                src: 'music/code/TheXXIntro.mp3',
+            },
+            {
+                title: 'Day One',
+                artiste: 'Hans Zimmer',
+                src: 'music/code/HansZimmerDayOne.mp3',
+            },
+        ],
+    }
+
 
     return (
         <>
@@ -63,51 +98,59 @@ const Spotify = () => {
                     bottom: 0px;
                 }
             `}</style>
-            <div className="spotifyContainer">
-                <h3>Playlists</h3>
-                <Scroller
-                    setCodePlaylist={setCodePlaylist}
-                    setRapPlaylist={setRapPlaylist}
-                ></Scroller>
-                <h3>Liste</h3>
-                {rapPlaylist ? (
-                    <>
-                        {playListRap.map((title, i) => (
-                            <Title
-                                title={title.title}
-                                key={i}
-                                data={title.src}
-                                artiste={title.artiste}
-                                onClick={playMusic}
-                            />
-                        ))}
-                    </>
-                ) : (
-                    <></>
-                )}
+            {isLoaded ? (
+                <PlayerContext.Provider value={value}>
+                    <div className="spotifyContainer">
+                        <h3>Playlists</h3>
+                        <Scroller
+                            setCodePlaylist={setCodePlaylist}
+                            setRapPlaylist={setRapPlaylist}
+                        ></Scroller>
+                        <h3>Liste</h3>
+                        {rapPlaylist ? (
+                            <>
+                                {myMusic.playListRap.map((title, i) => (
+                                    <Title
+                                        title={title.title}
+                                        key={i}
+                                        dataKey={i}
+                                        data={title.src}
+                                        artiste={title.artiste}
+                                        // onClick={playMusic}
+                                    />
+                                ))}
+                            </>
+                        ) : (
+                            <></>
+                        )}
 
-                {codePLaylist ? (
-                    <>
-                        {playListCode.map((title, i) => (
-                            <Title
-                                title={title.title}
-                                key={i}
-                                data={title.src}
-                                artiste={title.artiste}
-                                onClick={playMusic}
-                            />
-                        ))}
-                    </>
-                ) : (
-                    <></>
-                )}
-                <div className="audioContainer">
-                    <audio id="audioPlayer" controls src={music}>
-                        Your browser does not support the
-                        <code>audio</code> element.
-                    </audio>
-                </div>
-            </div>
+                        {codePLaylist ? (
+                            <>
+                                {myMusic.playListCode.map((title, i) => (
+                                    <Title
+                                        title={title.title}
+                                        key={i}
+                                        dataKey={i}
+                                        data={title.src}
+                                        artiste={title.artiste}
+                                        // onClick={playMusic}
+                                    />
+                                ))}
+                            </>
+                        ) : (
+                            <></>
+                        )}
+                        <div className="audioContainer">
+                            <audio id="audioPlayer" controls src={songSrc}>
+                                Your browser does not support the
+                                <code>audio</code> element.
+                            </audio>
+                        </div>
+                    </div>
+                </PlayerContext.Provider>
+            ) : (
+                <></>
+            )}
         </>
     )
 }

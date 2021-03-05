@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState , useContext } from 'react'
 
 import AlbumIcon from '../../icons/AlbumIcon'
 import gsap from 'gsap'
 import Draggable from 'react-draggable' // The default
+import PlayerContext from '../../../contexts/PlayerContext'
 
 const Scroller = (props) => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [mousePosition,setMousePosition] = useState('')
     const [mouseInitialPose,setMouseInitialPose] = useState('')
     const [mouseDown,setMouseDown] = useState(false)
+    const {playlist,setPlaylist} = useContext(PlayerContext)
     useEffect(() => {
         setIsLoaded(true)
     })
@@ -16,11 +18,13 @@ const Scroller = (props) => {
     const rap = () => {
         props.setCodePlaylist(false)
         props.setRapPlaylist(true)
+        setPlaylist('playListRap')
     }
 
     const code = () => {
         props.setRapPlaylist(false)
         props.setCodePlaylist(true)
+        setPlaylist('playListCode')
     }
     return (
         <>
