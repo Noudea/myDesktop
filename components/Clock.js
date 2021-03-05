@@ -12,7 +12,7 @@ const Clock = () => {
     useEffect(() => {
         setInterval(() => 
         {  
-            setHours(new Date().getHours())
+            setHours(('0'+new Date().getHours()).slice(-2))
             // setMinutes(new Date().getMinutes())
             setMinutes( ('0'+new Date().getMinutes()).slice(-2))
             setSeconds(new Date().getSeconds())
