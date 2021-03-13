@@ -23,6 +23,7 @@ const FullWindow = (props) => {
     const { wallPapers, setWallPapers } = useContext(PageRenderContext)
     const { projects, setProjects } = useContext(PageRenderContext)
     const { cocoabunbuns, setCocoabunbuns } = useContext(PageRenderContext)
+    const { hielo, setHielo } = useContext(PageRenderContext)
     const { themes, setThemes } = useContext(PageRenderContext)
     const { profile, setProfile } = useContext(PageRenderContext)
     const { spotify, setSpotify } = useContext(PageRenderContext)
@@ -78,6 +79,9 @@ const FullWindow = (props) => {
         }
         if (props.pageName == 'Spotify') {
             setSpotify(false);
+        }
+        if (props.pageName == 'Hielo') {
+            setHielo(false);
         }
     }
 

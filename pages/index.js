@@ -24,6 +24,7 @@ export default function Home() {
     const welcome = useContext(PageRenderContext).welcome
     const projects = useContext(PageRenderContext).projects
     const cocoabunbuns = useContext(PageRenderContext).cocoabunbuns
+    const hielo = useContext(PageRenderContext).hielo
     const wallPapers = useContext(PageRenderContext).wallPapers
     const themes = useContext(PageRenderContext).themes
     const profile = useContext(PageRenderContext).profile
@@ -49,7 +50,7 @@ export default function Home() {
                     color: ${colors.text};
                 }
                 h2 {
-                    color:${colors.accentStrong}
+                    color: ${colors.accentStrong};
                 }
             `}</style>
             <Head>
@@ -90,6 +91,30 @@ export default function Home() {
                         >
                             <iframe
                                 src="/projets/cocoabunbuns/index.html"
+                                name="myiFrame"
+                                scrolling="yes"
+                                frameBorder="0"
+                                marginHeight="0px"
+                                marginWidth="0px"
+                                height="100%"
+                                width="100%"
+                                allowFullScreen
+                            ></iframe>
+                        </FullWindow>
+                    </>
+                ) : (
+                    <></>
+                )}
+                {hielo ? (
+                    <>
+                        <FullWindow
+                            width="375px"
+                            height="812px"
+                            pageName="Hielo"
+                            background="white"
+                        >
+                            <iframe
+                                src="/projets/hielo/index.html"
                                 name="myiFrame"
                                 scrolling="yes"
                                 frameBorder="0"

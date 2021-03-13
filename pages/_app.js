@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
     const [wallPapers, setWallPapers] = useState(false);
     const [projects, setProjects] = useState(false);
     const [cocoabunbuns, setCocoabunbuns] = useState(false);
+    const [hielo, setHielo] = useState(false);
     const [themes, setThemes] = useState(false);
     const [profile,setProfile] = useState(false);
     const [spotify,setSpotify] = useState(false);
@@ -29,6 +30,8 @@ function MyApp({ Component, pageProps }) {
         setProjects,
         cocoabunbuns,
         setCocoabunbuns,
+        hielo,
+        setHielo,
         themes,
         setThemes,
         profile,

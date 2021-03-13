@@ -11,6 +11,8 @@ const PageRenderContext = React.createContext({
     setProjects : () => {},
     cocoabunbuns : false,
     setCocoabunbuns : () => {},
+    hielo : false,
+    setHielo : () => {},
     themes : false,
     setThemes : () => {},
     profiles : false,
