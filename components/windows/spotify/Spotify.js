@@ -14,7 +14,8 @@ const Spotify = () => {
     const [playlist, setPlaylist] = useState('')
     const [songSrc, setSongSrc] = useState('')
     const [isLoaded, setIsLoaded] = useState(false)
-
+    const [playing, setPlaying] = useState(false)
+    console.log(playing)
     const value = {
         song,
         setSong,
@@ -24,8 +25,19 @@ const Spotify = () => {
         setSongKey,
         playlist,
         setPlaylist,
+        playing,
+        setPlaying
     }
 
+
+    
+    const playMusic = () => {
+
+    }
+
+    const pauseMusic = () => {
+
+    }
     // const srcSong = useContext(PlayerContext).songSrc
     // console.log('SRCSONG',srcSong)
     
@@ -35,12 +47,15 @@ const Spotify = () => {
         if (audioPlayer) {
             audioPlayer.addEventListener('ended', () => {
                 const currentPlaylist = playlist
+                console.log(songKey)
                 if(myMusic[currentPlaylist]) {
                     if (songKey == myMusic[currentPlaylist].length - 1) {
+                        console.log('start to 0')
                         setSongSrc(myMusic[currentPlaylist][0].src)
                         setSong(myMusic[currentPlaylist][0].title)
                         setSongKey(0)
                     } else {
+                        console.log(myMusic[currentPlaylist][songKey + 1])
                         setSongSrc(myMusic[currentPlaylist][songKey + 1].src)
                         setSong(myMusic[currentPlaylist][songKey + 1].title)
                         setSongKey(songKey+1)
@@ -155,6 +170,10 @@ const Spotify = () => {
                         ) : (
                             <></>
                         )}
+                        <div className='audioPlayerContainer'>
+                            {playing ? <><img onClick={pauseMusic} src="svg/pause.svg"></img></> : <><img  onClick={playMusic} src="svg/play.svg"></img></>}
+
+                        </div>
                         <div className="audioContainer">
                             <audio id="audioPlayer" controls src={songSrc}>
                                 Your browser does not support the

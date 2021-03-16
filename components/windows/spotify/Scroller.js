@@ -13,6 +13,7 @@ const Scroller = (props) => {
     const {playlist,setPlaylist} = useContext(PlayerContext)
     useEffect(() => {
         setIsLoaded(true)
+        
     })
 
     const rap = () => {

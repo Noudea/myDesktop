@@ -9,6 +9,8 @@ const PlayerContext = React.createContext({
   setSongKey : () => {},
   playlist : '',
   setPlaylist : () => {},
+  playing : '',
+  setPlaying : () => {},
 });
 
 export default PlayerContext;

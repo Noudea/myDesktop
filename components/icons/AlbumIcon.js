@@ -1,6 +1,11 @@
 
 const AlbumIcon = (props) => {
 
+
+    const dragStart = (e) => {
+        e.preventDefault()
+    }
+
     return(
         <div> 
             <style jsx>{`
@@ -29,7 +34,7 @@ const AlbumIcon = (props) => {
                 onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave}
             ></Image> */}
             <div className='iconWrapper'>
-                <img onClick={props.onClick} src={props.src}></img>
+                <img onClick={props.onClick} onDragStart={dragStart} src={props.src}></img>
                 <p>{props.name}</p>
             </div>
         </div>
