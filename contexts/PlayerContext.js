@@ -3,14 +3,12 @@ import React from 'react';
 const PlayerContext = React.createContext({
   song: "",
   songSrc : '',
-  setSong: () => {},
-  setSongSrc: () => {},
+  setSong:  () => {},
+  setSongSrc:  () => {},
   songKey : '',
-  setSongKey : () => {},
+  setSongKey :  () => {},
   playlist : '',
   setPlaylist : () => {},
-  playing : '',
-  setPlaying : () => {},
 });
 
 export default PlayerContext;

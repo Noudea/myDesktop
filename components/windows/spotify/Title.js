@@ -16,26 +16,28 @@ const Title = (props) => {
     //         audioPlayer.play()
     //     }, 1000)
     // }
-                    console.log(useContext(PlayerContext))
+    console.log(useContext(PlayerContext))
 
     useEffect(() => {
         setAudioPlayer(document.getElementById('audioPlayer'))
-        console.log('TITTILE',props.title,song)
+        // console.log('TITTILE',props.title,song)
         if(props.title == song) {
             setColor('#1ED760')
         } else {
             setColor('white')
         }
     },[song,color])
-
+    
     const play = () => {
+        setSongKey(props.dataKey)
         setSong(props.title)
         setSongSrc(props.data)
-        setSongKey(props.dataKey)
-        setTimeout(() => {
-            audioPlayer.play()
-        }, 1000)
-        console.log(songSrc)
+        // console.log(audioPlayer.src)
+        // await audioPlayer.src
+        // // setTimeout(() => {
+        // await audioPlayer.play()
+        // // }, 1000)
+        // console.log(songSrc)
     }
 
     return(
