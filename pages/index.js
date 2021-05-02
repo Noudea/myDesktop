@@ -85,7 +85,7 @@ export default function Home() {
                     <>
                         <FullWindow
                             width="375px"
-                            height="812px"
+                            height="612px"
                             pageName="Cocoabunbuns"
                             background="white"
                         >
@@ -109,7 +109,7 @@ export default function Home() {
                     <>
                         <FullWindow
                             width="375px"
-                            height="812px"
+                            height="612px"
                             pageName="Hielo"
                             background="white"
                         >
@@ -204,7 +204,7 @@ export default function Home() {
                 {spotify ? (
                     <FullWindow
                         width="375px"
-                        height="812px"
+                        height="612px"
                         pageName="Spotify"
                         background="#010101"
                     >
