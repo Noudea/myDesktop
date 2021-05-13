@@ -6,9 +6,9 @@ const themeColors = {
         topBar: 'hsla(0,0%,100%,0.7)',
         text: '#000000',
         accentMild: '#EDD5ED',
-        accentStrong : '#996E5C',
+        accentStrong : '#424e61',
         //996E5C F0A8A8
-        inverted : '#996E5C'
+        inverted : '#424e61'
 
     },
     dark: {

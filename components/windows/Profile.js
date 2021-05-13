@@ -9,8 +9,7 @@ const Profile = () => {
                     flex-direction: column;
                 }
                 img {
-                    max-width: 100%;
-                    width: 40%;
+                    width: 182px;
                 }
                 article {
                     display: flex;
