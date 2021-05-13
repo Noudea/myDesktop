@@ -37,7 +37,7 @@ const Settings = () => {
                     <PageIcon
                         onClick={openWallpapers}
                         name="Wallpapers"
-                        src="/images/backgrounds/1528184443-1370344293774.jpg"
+                        src="/images/backgrounds/1528184443-1370344293774.webp"
                         width="90px"
                         height="90px"
                         borderRadius="5px"

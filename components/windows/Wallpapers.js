@@ -53,7 +53,7 @@ const Wallpapers = () => {
                 onClick={setDayDesert}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1528184443-1370344293774.jpg'
+                src='/images/backgrounds/1528184443-1370344293774.webp'
                 name="Day Desert"
                 >
             </PageIcon>
@@ -62,7 +62,7 @@ const Wallpapers = () => {
                 onClick={setNightDesert}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1528184483-1410138568815.jpg'
+                src='/images/backgrounds/1528184483-1410138568815.webp'
                 name="Night Desert"
                 >
             </PageIcon>
@@ -70,7 +70,7 @@ const Wallpapers = () => {
                 onClick={setTanjiro}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1014466.jpg'
+                src='/images/backgrounds/1014466.webp'
                 name="Tanjiro"
                 >
             </PageIcon>
@@ -78,7 +78,7 @@ const Wallpapers = () => {
                 onClick={setMuzan}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/thumb-1920-1015202.png'
+                src='/images/backgrounds/thumb-1920-1015202.webp'
                 name="Muzan"
                 >
             </PageIcon>
@@ -86,7 +86,7 @@ const Wallpapers = () => {
                 onClick={setTomiokaWater}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1030342.jpg'
+                src='/images/backgrounds/1030342.webp'
                 name="Tomioka"
                 >
             </PageIcon>
@@ -94,7 +94,7 @@ const Wallpapers = () => {
                 onClick={setTomioka}
                 width="255px" 
                 height="150px" 
-                src='/images/backgrounds/1033456.png'
+                src='/images/backgrounds/1033456.webp'
                 name="Tomioka"
                 >
             </PageIcon>
